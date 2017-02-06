@@ -9,10 +9,7 @@ NEI <- readRDS("data/summarySCC_PM25.rds")
 library(dplyr)
 
 graphData <- NEI[, c("Emissions", "year")]
-# graphData$year <- as.factor(graphData$year)
-
 graphData <- graphData %>% 
-	tbl_df %>% 
 	group_by(year) %>% 
 	summarise(sum(Emissions)) %>% 
 	rename(totalEmissions = `sum(Emissions)`)
