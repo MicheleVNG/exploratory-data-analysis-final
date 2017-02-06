@@ -1,7 +1,5 @@
 # Read the data
 NEI <- readRDS("data/summarySCC_PM25.rds")
-SCC <- readRDS("data/Source_Classification_Code.rds")
-df <- merge(NEI, SCC, by = "SCC")
 
 # Plot 2
 # Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510")
