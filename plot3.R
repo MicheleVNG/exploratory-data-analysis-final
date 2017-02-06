@@ -1,7 +1,5 @@
 # Read the data
 NEI <- readRDS("data/summarySCC_PM25.rds")
-SCC <- readRDS("data/Source_Classification_Code.rds")
-df <- merge(NEI, SCC, by = "SCC")
 
 # Plot 3
 # Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable,
@@ -18,7 +16,7 @@ graphData <- NEI[NEI$fips == "24510", c("Emissions", "type", "year")]
 # 	summarize(sum(Emissions)) %>% 
 # 	rename(totalEmissions = `sum(Emissions)`)
 
-png(filename = "plot3.png", width = 900, height = 400)
+png(filename = "plot3.png", width = 600, height = 230)
 
 g <- ggplot(graphData, aes(as.factor(year), Emissions))
 g <- g + geom_col() + facet_grid(. ~ type)
