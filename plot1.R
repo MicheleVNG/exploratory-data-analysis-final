@@ -18,11 +18,10 @@ graphData <- graphData %>%
 
 graphData$totalEmissions <- graphData$totalEmissions / 1000
 
-
 png(filename = "plot1.png")
 
 with(graphData,
-     plot(year, totalEmissions, type = "l", col = "navy", lwd = 2, xaxp = c(1999, 2008, 3),
+     plot(year, totalEmissions, type = "b", col = "navy", lwd = 2, xaxp = c(1999, 2008, 3),
           xlab = "Year", ylab = "Total Emissions (thousands of tons)",
           main = "Total PM2.5 emissions", ylim = c(0, max(totalEmissions)))
      )
