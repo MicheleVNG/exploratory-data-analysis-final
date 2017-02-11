@@ -12,8 +12,7 @@ library(ggplot2)
 SCC <- SCC[, c("SCC", "Short.Name")]
 graphData <- NEI[, c("SCC", "Emissions", "year")]
 graphData <- merge(graphData, SCC, by = "SCC")
-graphData <- graphData %>% subset(grepl("Comb /", graphData$Short.Name))
-graphData <- graphData %>% subset(grepl("Coal", graphData$Short.Name))
+graphData <- graphData %>% subset(grepl("Comb /|Coal", graphData$Short.Name))
 graphData$Emissions <- graphData$Emissions / 1000
 
 png("plot4.png")
